@@ -1,0 +1,50 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.education-section {
+  @include section-padding;
+  background: $bg-primary;
+}
+
+.education-container {
+  @include container;
+}
+
+.edu-card {
+  .edu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+
+    @include md {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  .degree {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    color: $white;
+  }
+
+  .institution {
+    color: $grad-1;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .period {
+    color: $white-40;
+    font-size: 0.85rem;
+    font-family: $font-salsa;
+    white-space: nowrap;
+  }
+
+  .details {
+    color: $white-60;
+    font-size: 0.95rem;
+  }
+}

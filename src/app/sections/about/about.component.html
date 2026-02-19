@@ -1,0 +1,25 @@
+<section id="about" class="about-section">
+  <div class="about-container">
+    <app-section-header title="About Me" />
+
+    <div class="about-grid">
+      <div class="about-image" appScrollAnimate animationType="fade-right">
+        <div class="image-wrapper" appTilt>
+          <img src="assets/images/about-me-image.png" alt="Mohamed Faseeh" />
+          <div class="image-glow"></div>
+        </div>
+      </div>
+
+      <div class="about-points">
+        @for (point of data.personalInfo.aboutPoints; track $index) {
+          <div class="about-card" appScrollAnimate [animationDelay]="$index * 0.15" appTilt>
+            <div class="card-index">
+              <span>{{ ($index + 1).toString().padStart(2, '0') }}</span>
+            </div>
+            <p>{{ point }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

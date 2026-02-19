@@ -1,0 +1,143 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.experience-section {
+  @include section-padding;
+  background: $bg-primary;
+}
+
+.experience-container {
+  @include container;
+}
+
+// Timeline
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+
+  // Vertical line
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, $grad-1, $grad-4);
+
+    @include lg {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 2.5rem;
+
+  @include lg {
+    width: 50%;
+    padding-left: 0;
+    padding-right: 40px;
+
+    &.right {
+      margin-left: 50%;
+      padding-left: 40px;
+      padding-right: 0;
+    }
+  }
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 1.5rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: $brand-gradient;
+  border: 3px solid $bg-primary;
+  z-index: 2;
+
+  @include lg {
+    left: auto;
+    right: -9px;
+
+    .right & {
+      right: auto;
+      left: -9px;
+    }
+  }
+}
+
+.timeline-card {
+  @include glass-card;
+  @include shine-effect;
+  padding: 1.5rem;
+
+  &:hover {
+    @include glass-card-hover;
+  }
+}
+
+.timeline-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.company {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: $white;
+}
+
+.role {
+  color: $grad-1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.period {
+  color: $white-40;
+  font-size: 0.85rem;
+  font-family: $font-salsa;
+  white-space: nowrap;
+}
+
+.responsibilities {
+  padding-left: 1.25rem;
+  list-style: disc;
+
+  li {
+    color: $white-60;
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+  }
+}
+
+.resume-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: $link-color;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $grad-1;
+  }
+}

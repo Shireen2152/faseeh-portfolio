@@ -1,0 +1,139 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.skills-section {
+  @include section-padding;
+  background: $bg-primary;
+}
+
+.skills-container {
+  @include container;
+}
+
+// ─── Category Filter Pills ──────────────────────────────────
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.filter-pill {
+  padding: 0.45rem 1.2rem;
+  border-radius: $radius-full;
+  border: 1px solid $white-20;
+  background: transparent;
+  color: $white-60;
+  font-family: $font-inter;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+
+  &:hover {
+    color: $white;
+    border-color: $white-40;
+    background: $white-10;
+  }
+
+  &.active {
+    background: $brand-gradient;
+    color: $white;
+    border-color: transparent;
+    box-shadow: 0 4px 20px $shadow-blue;
+  }
+}
+
+// ─── Skills Grid ────────────────────────────────────────────
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// ─── Skill Card ─────────────────────────────────────────────
+.skill-card {
+  @include glass-card;
+  @include flex-center;
+  @include shine-effect;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  transition: all $transition-base;
+
+  &:hover {
+    @include glass-card-hover;
+    transform: translateY(-6px);
+
+    .icon-glow {
+      transform: scale(1.1);
+      box-shadow: 0 0 28px var(--skill-color, $white-20),
+                  0 0 60px color-mix(in srgb, var(--skill-color) 30%, transparent);
+    }
+
+    .skill-name {
+      color: $white;
+    }
+
+    .skill-category {
+      border-color: color-mix(in srgb, var(--skill-color) 50%, transparent);
+      color: var(--skill-color);
+    }
+  }
+}
+
+// ─── Icon Glow Circle ───────────────────────────────────────
+.icon-glow {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--skill-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--skill-color) 25%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-spring;
+}
+
+.skill-icon {
+  width: 36px;
+  height: 36px;
+  transition: transform $transition-base;
+}
+
+.skill-initial {
+  font-family: $font-salsa;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.skill-name {
+  color: $white-60;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  transition: color $transition-base;
+}
+
+.skill-category {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: $white-40;
+  padding: 0.2rem 0.65rem;
+  border-radius: $radius-full;
+  border: 1px solid $white-10;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all $transition-base;
+}

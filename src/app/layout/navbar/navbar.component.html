@@ -1,0 +1,27 @@
+<nav class="navbar" [class.scrolled]="scrollService.scrollY() > 50">
+  <div class="navbar-inner">
+    <a class="logo" (click)="navigate('hero')">
+      <img src="assets/images/logo-portfolio.svg" alt="Faseeh Logo" />
+    </a>
+
+    <button class="hamburger" [class.active]="mobileOpen()" (click)="toggleMobile()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-links" [class.open]="mobileOpen()">
+      @for (item of dataService.navItems; track item.sectionId) {
+        @if (item.sectionId === 'contact') {
+          <button class="nav-link contact-btn" [class.active]="scrollService.activeSection() === item.sectionId" (click)="navigate(item.sectionId)">
+            {{ item.label }}
+          </button>
+        } @else {
+          <button class="nav-link" [class.active]="scrollService.activeSection() === item.sectionId" (click)="navigate(item.sectionId)">
+            {{ item.label }}
+          </button>
+        }
+      }
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,66 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.certs-section {
+  @include section-padding;
+  background: $bg-primary;
+}
+
+.certs-container {
+  @include container;
+}
+
+.certs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cert-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  @include max-sm {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.cert-icon {
+  width: clamp(50px, 6vw, 80px);
+  height: clamp(50px, 6vw, 80px);
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+}
+
+.cert-info {
+  flex: 1;
+}
+
+.cert-title {
+  font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  color: $white;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid $white;
+  border-radius: $radius-full;
+  color: $white;
+  font-size: 0.85rem;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $grad-2;
+    border-color: $grad-2;
+    color: $white;
+  }
+}

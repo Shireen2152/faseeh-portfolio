@@ -1,0 +1,39 @@
+<section id="hero" class="hero">
+  <ngx-particles
+    [id]="particlesId"
+    [options]="particlesOptions"
+    [particlesInit]="particlesInit"
+    class="particles-bg"
+  />
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="greeting">Hello! I'm <span class="name-gradient">{{ data.personalInfo.name }}</span></h1>
+      <div class="typing-wrapper">
+        <span class="typed-role">{{ typedText() }}</span>
+        <span class="cursor">|</span>
+      </div>
+      <p class="tagline">{{ data.personalInfo.tagline }}</p>
+
+      <div class="badges-row">
+        @for (badge of heroBadges; track badge.text) {
+          <app-badge-pill [text]="badge.text" [icon]="badge.icon" [color]="badge.color" />
+        }
+      </div>
+
+      <div class="cta-row">
+        <app-gradient-button variant="solid" (clicked)="downloadResume()">
+          Download Resume
+          <img src="assets/images/download.svg" alt="" class="btn-icon" />
+        </app-gradient-button>
+        <app-gradient-button variant="outline" (clicked)="scrollService.scrollTo('contact')">
+          Contact Me
+          <img src="assets/images/call.svg" alt="" class="btn-icon" />
+        </app-gradient-button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/banner-image.png" alt="Mohamed Faseeh" />
+    </div>
+  </div>
+</section>

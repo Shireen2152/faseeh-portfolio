@@ -1,0 +1,110 @@
+@use 'variables' as *;
+
+// === Font Faces ===
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-Regular.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-Medium.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-Medium.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-SemiBold.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-SemiBold.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-Bold.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-Bold.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-ExtraBold.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-ExtraBold.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/Inter18pt-Light.woff2') format('woff2'),
+       url('/assets/fonts/Inter18pt-Light.woff') format('woff'),
+       url('/assets/fonts/Inter18pt-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Salsa';
+  src: url('/assets/fonts/Salsa-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Salsa-Regular.woff') format('woff'),
+       url('/assets/fonts/Salsa-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// === Base Typography ===
+body {
+  font-family: $font-inter;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-salsa;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+h4 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+
+p {
+  margin: 0;
+  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+  line-height: 1.6;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $grad-1;
+  }
+}

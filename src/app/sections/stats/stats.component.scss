@@ -1,0 +1,54 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.stats-section {
+  padding: clamp(2rem, 4vw, 4rem) 0;
+  background: $bg-primary;
+}
+
+.stats-container {
+  @include container;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  @include glass-card;
+  @include flex-center;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.5rem, 2.5vw, 2.5rem) 1rem;
+  text-align: center;
+  transition: all $transition-base;
+
+  &:hover {
+    @include glass-card-hover;
+    transform: translateY(-4px);
+  }
+}
+
+.stat-icon {
+  color: $grad-1;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-family: $font-salsa;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: $white;
+  line-height: 1;
+}
+
+.stat-label {
+  color: $white-60;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+}

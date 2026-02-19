@@ -1,0 +1,90 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+@mixin container {
+  width: $container-width;
+  max-width: $container-max;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $section-padding-x;
+  padding-right: $section-padding-x;
+}
+
+@mixin section-padding {
+  padding-top: $section-padding-y;
+  padding-bottom: $section-padding-y;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin gradient-text {
+  background: $brand-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin glass-card {
+  background: $glass-bg;
+  backdrop-filter: blur($glass-blur);
+  -webkit-backdrop-filter: blur($glass-blur);
+  border: 1px solid $glass-border;
+  border-radius: $radius-lg;
+}
+
+@mixin glass-card-hover {
+  background: $bg-card-hover;
+  border-color: $border-medium;
+  box-shadow: 0 8px 32px $shadow-blue;
+}
+
+@mixin shine-effect {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    transform: skewX(-25deg);
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+  }
+
+  &:hover::before {
+    animation: shineMove 0.8s ease forwards;
+  }
+}
+
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

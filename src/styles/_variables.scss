@@ -1,0 +1,61 @@
+// === Colors ===
+$bg-primary: #010101;
+$bg-card: rgba(255, 255, 255, 0.08);
+$bg-card-hover: rgba(255, 255, 255, 0.12);
+$white: #ffffff;
+$white-60: rgba(255, 255, 255, 0.6);
+$white-40: rgba(255, 255, 255, 0.4);
+$white-20: rgba(255, 255, 255, 0.2);
+$white-10: rgba(255, 255, 255, 0.1);
+$border-light: rgba(255, 255, 255, 0.15);
+$border-medium: rgba(255, 255, 255, 0.25);
+
+// Brand gradient stops
+$grad-1: #4AAFF1;
+$grad-2: #5571ED;
+$grad-3: #D94CAC;
+$grad-4: #ED647D;
+
+$brand-gradient: linear-gradient(135deg, $grad-1 0%, $grad-2 33%, $grad-3 66%, $grad-4 100%);
+$brand-gradient-horizontal: linear-gradient(90deg, $grad-1 0%, $grad-2 33%, $grad-3 66%, $grad-4 100%);
+
+// Secondary colors
+$link-color: #93CEFF;
+$shadow-blue: rgba(85, 113, 237, 0.4);
+$shadow-blue-strong: rgba(85, 113, 237, 0.6);
+
+// === Typography ===
+$font-inter: 'Inter', sans-serif;
+$font-salsa: 'Salsa', cursive;
+
+// === Spacing ===
+$section-padding-y: clamp(3rem, 6vw, 6rem);
+$section-padding-x: clamp(1rem, 4vw, 2rem);
+$container-max: 1200px;
+$container-width: 85%;
+
+// === Borders ===
+$radius-sm: 8px;
+$radius-md: 16px;
+$radius-lg: 24px;
+$radius-xl: 40px;
+$radius-full: 9999px;
+
+// === Transitions ===
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+$transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// === Z-index ===
+$z-particles: 0;
+$z-content: 1;
+$z-navbar: 100;
+$z-modal-backdrop: 200;
+$z-modal: 201;
+$z-scroll-top: 150;
+
+// === Glass ===
+$glass-blur: 20px;
+$glass-bg: rgba(255, 255, 255, 0.08);
+$glass-border: rgba(255, 255, 255, 0.15);

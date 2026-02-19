@@ -1,0 +1,36 @@
+<section id="skills" class="skills-section">
+  <div class="skills-container">
+    <app-section-header title="Technical Skills" subtitle="Tools and technologies I work with daily" />
+
+    <div class="category-filters" appScrollAnimate>
+      @for (cat of categories(); track cat) {
+        <button
+          class="filter-pill"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)">
+          {{ cat }}
+        </button>
+      }
+    </div>
+
+    <div class="skills-grid">
+      @for (skill of filteredSkills(); track skill.name) {
+        <div
+          class="skill-card"
+          appScrollAnimate
+          [animationDelay]="$index * 0.08"
+          appTilt>
+          <div class="icon-glow" [style.--skill-color]="skill.color">
+            @if (skill.icon) {
+              <img [src]="skill.icon" [alt]="skill.name" class="skill-icon" />
+            } @else {
+              <span class="skill-initial" [style.color]="skill.color">{{ skill.name.charAt(0) }}</span>
+            }
+          </div>
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-category" [style.--skill-color]="skill.color">{{ skill.category }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

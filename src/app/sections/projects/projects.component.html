@@ -1,0 +1,96 @@
+<section id="projects" class="projects-section">
+  <div class="projects-container">
+    <app-section-header title="My Personal Projects" subtitle="Real-world cloud & DevOps projects" />
+
+    <div class="filter-tabs" appScrollAnimate>
+      @for (cat of data.projectCategories; track cat) {
+        <button
+          class="filter-tab"
+          [class.active]="activeCategory() === cat"
+          (click)="setCategory(cat)"
+        >
+          {{ cat }}
+        </button>
+      }
+    </div>
+
+    <div class="projects-grid">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="project-card-wrapper" appScrollAnimate [animationDelay]="$index * 0.12" appTilt>
+          <app-glass-card [shine]="true" [hoverable]="true">
+            <div class="project-card" (click)="openModal(project)">
+              <span class="project-category">{{ project.category }}</span>
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-desc">{{ project.description }}</p>
+              <div class="project-tech">
+                @for (tech of project.techStack.slice(0, 5); track tech) {
+                  <app-badge-pill [text]="tech" color="#4AAFF1" />
+                }
+                @if (project.techStack.length > 5) {
+                  <app-badge-pill [text]="'+' + (project.techStack.length - 5)" color="#ffffff66" />
+                }
+              </div>
+              <div class="project-footer">
+                <span class="view-details">View Details →</span>
+              </div>
+            </div>
+          </app-glass-card>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Project Modal -->
+@if (selectedProject(); as project) {
+  <div class="modal-backdrop" (click)="onBackdropClick($event)">
+    <div class="modal-content">
+      <button class="modal-close" (click)="closeModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="modal-body">
+        <span class="modal-category">{{ project.category }}</span>
+        <h2 class="modal-title">{{ project.title }}</h2>
+        <p class="modal-desc">{{ project.description }}</p>
+
+        <a [href]="project.link" target="_blank" rel="noopener" class="project-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+
+        @for (section of project.keyResponsibilities; track section.title) {
+          <div class="modal-section">
+            <h4>{{ section.title }}</h4>
+            <ul>
+              @for (item of section.items; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <div class="modal-section">
+          <h4>Technologies Used</h4>
+          @for (tech of project.technologies; track tech.title) {
+            <div class="tech-group">
+              <span class="tech-label">{{ tech.title }}:</span>
+              <span class="tech-value">{{ tech.items.join(', ') }}</span>
+            </div>
+          }
+        </div>
+
+        <div class="modal-section">
+          <h4>Key Outcomes</h4>
+          <ul>
+            @for (outcome of project.outcomes; track outcome) {
+              <li>{{ outcome }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+}

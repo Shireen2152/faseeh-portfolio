@@ -1,0 +1,20 @@
+<section id="education" class="education-section">
+  <div class="education-container">
+    <app-section-header title="Education" />
+
+    @for (edu of data.education; track edu.degree) {
+      <app-glass-card [shine]="true" appScrollAnimate>
+        <div class="edu-card">
+          <div class="edu-header">
+            <div>
+              <h3 class="degree">{{ edu.degree }}</h3>
+              <p class="institution">{{ edu.institution }}</p>
+            </div>
+            <span class="period">{{ edu.period }}</span>
+          </div>
+          <p class="details">{{ edu.details }}</p>
+        </div>
+      </app-glass-card>
+    }
+  </div>
+</section>

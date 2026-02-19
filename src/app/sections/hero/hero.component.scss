@@ -1,0 +1,137 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-primary;
+  overflow: hidden;
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: $section-padding-y;
+}
+
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  z-index: $z-particles;
+
+  ::ng-deep canvas {
+    display: block;
+  }
+}
+
+.hero-content {
+  @include container;
+  position: relative;
+  z-index: $z-content;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: center;
+
+  @include md {
+    text-align: left;
+  }
+}
+
+.greeting {
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  color: $white;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.name-gradient {
+  @include gradient-text;
+  display: inline;
+}
+
+.typing-wrapper {
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  font-weight: 600;
+  color: $grad-1;
+  margin-bottom: 1.25rem;
+  min-height: 2.5rem;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+  color: $grad-1;
+  font-weight: 300;
+}
+
+.tagline {
+  color: $white-60;
+  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+
+  @include max-md {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+
+  @include md {
+    justify-content: flex-start;
+  }
+}
+
+.cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include md {
+    justify-content: flex-start;
+  }
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.hero-image {
+  display: none;
+  flex: 0 0 auto;
+
+  @include xxl {
+    display: block;
+  }
+
+  img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba($grad-2, 0.3));
+    animation: float 4s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

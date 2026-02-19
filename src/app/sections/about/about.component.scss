@@ -1,0 +1,134 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/breakpoints' as *;
+
+.about-section {
+  @include section-padding;
+  background: $bg-primary;
+}
+
+.about-container {
+  @include container;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+// ─── Image with Glow & Float ────────────────────────────────
+.about-image {
+  display: none;
+  justify-content: center;
+
+  @include md {
+    display: flex;
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  max-width: 380px;
+  width: 100%;
+  animation: float 6s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    border-radius: $radius-lg;
+    position: relative;
+    z-index: 1;
+    transition: all $transition-base;
+  }
+
+  &:hover img {
+    box-shadow: 0 0 40px $shadow-blue;
+  }
+}
+
+.image-glow {
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(#{$radius-lg} + 4px);
+  background: $brand-gradient;
+  opacity: 0;
+  z-index: 0;
+  filter: blur(16px);
+  transition: opacity $transition-slow;
+
+  .image-wrapper:hover & {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+// ─── About Cards ────────────────────────────────────────────
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-card {
+  @include glass-card;
+  @include shine-effect;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition: all $transition-base;
+  cursor: default;
+
+  &:hover {
+    @include glass-card-hover;
+    transform: translateX(8px);
+
+    .card-index span {
+      background: $brand-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  p {
+    color: $white-60;
+    font-size: clamp(0.875rem, 1.2vw, 1.05rem);
+    line-height: 1.6;
+    transition: color $transition-base;
+  }
+
+  &:hover p {
+    color: $white;
+  }
+}
+
+.card-index {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: $radius-sm;
+  border: 1px solid $white-20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+
+  span {
+    font-family: $font-salsa;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: $white-40;
+    transition: all $transition-base;
+  }
+}

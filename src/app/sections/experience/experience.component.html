@@ -1,0 +1,28 @@
+<section id="experience" class="experience-section">
+  <div class="experience-container">
+    <app-section-header title="Professional Experience" />
+
+    <div class="timeline">
+      @for (exp of data.experience; track exp.company) {
+        <div class="timeline-item" [class.right]="$index % 2 !== 0" appScrollAnimate [animationType]="$index % 2 === 0 ? 'fade-left' : 'fade-right'">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="company">{{ exp.company }}</h3>
+                <p class="role">{{ exp.role }}</p>
+              </div>
+              <span class="period">{{ exp.period }}</span>
+            </div>
+            <ul class="responsibilities">
+              @for (item of exp.responsibilities; track item) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+            <a class="resume-link" [href]="data.personalInfo.resumePath" download>Download resume to know more</a>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+@use 'variables' as *;
+
+.glass {
+  background: $glass-bg;
+  backdrop-filter: blur($glass-blur);
+  -webkit-backdrop-filter: blur($glass-blur);
+  border: 1px solid $glass-border;
+}
+
+.glass-card {
+  @extend .glass;
+  border-radius: $radius-lg;
+  padding: clamp(1rem, 2vw, 2rem);
+  transition: all $transition-base;
+
+  &:hover {
+    background: $bg-card-hover;
+    border-color: $border-medium;
+    box-shadow: 0 8px 32px $shadow-blue;
+  }
+}
+
+.glass-card-static {
+  @extend .glass;
+  border-radius: $radius-lg;
+  padding: clamp(1rem, 2vw, 2rem);
+}

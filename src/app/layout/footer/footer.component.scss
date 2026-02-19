@@ -1,0 +1,37 @@
+@use 'styles/variables' as *;
+
+.footer {
+  padding: 0 $section-padding-x;
+}
+
+.footer-inner {
+  max-width: $container-max;
+  width: $container-width;
+  margin: 0 auto;
+}
+
+.divider {
+  height: 1px;
+  background: $white-20;
+  margin-bottom: 1.5rem;
+}
+
+.footer-text {
+  text-align: center;
+  color: $white-40;
+  font-size: 0.875rem;
+  padding-bottom: 2rem;
+
+  .highlight {
+    color: $white;
+    font-weight: 600;
+  }
+}
+
+.coffee-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+}
