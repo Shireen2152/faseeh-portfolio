@@ -46,7 +46,7 @@ export class DataService {
     { name: 'Kubernetes', icon: 'assets/images/Kubernetes.svg', level: 75, category: 'Containers', color: '#316CE4' },
     { name: 'Prometheus', icon: 'assets/images/prometheus.svg', level: 80, category: 'Monitoring', color: '#E6522C' },
     { name: 'Grafana', icon: 'assets/images/grafana.svg', level: 80, category: 'Monitoring', color: '#EF8607' },
-    { name: 'GitHub', icon: 'assets/images/Github.svg', level: 90, category: 'CI/CD', color: '#ffffff' },
+    { name: 'GitHub', icon: 'assets/images/github-white.svg', level: 90, category: 'CI/CD', color: '#ffffff' },
     { name: 'GitLab CI/CD', icon: 'assets/images/Gitlab.svg', level: 85, category: 'CI/CD', color: '#FC6D26' },
     { name: 'Linux', icon: 'assets/images/linux.svg', level: 85, category: 'OS', color: '#F8BF11' },
     { name: 'Terraform', icon: 'assets/images/Terraform.svg', level: 80, category: 'IaC', color: '#7B42BC' },
@@ -217,7 +217,7 @@ export class DataService {
   readonly experience: Experience[] = [
     {
       company: 'Chargebee',
-      role: 'Cloud Production Engineer',
+      role: 'Cloud Reliability Engineer',
       period: 'April 2024 — Present',
       responsibilities: [
         'Monitored AWS infrastructure and resolved system/job errors.',

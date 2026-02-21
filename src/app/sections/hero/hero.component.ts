@@ -77,7 +77,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     { text: 'Docker', icon: 'assets/images/docker.svg', color: '#2396ED' },
     { text: 'Prometheus', icon: 'assets/images/prometheus.svg', color: '#E6522C' },
     { text: 'Grafana', icon: 'assets/images/grafana.svg', color: '#f8e23f' },
-    { text: 'GitHub', icon: 'assets/images/Github.svg', color: '#ffffff' },
+    { text: 'GitHub', icon: 'assets/images/github-white.svg', color: '#ffffff' },
     { text: 'GitLab CI/CD', icon: 'assets/images/Gitlab.svg', color: '#FC6D26' },
     { text: 'Linux', icon: 'assets/images/linux.svg', color: '#F8BF11' },
   ];
